@@ -1,62 +1,48 @@
 import React from 'react'
+import { useData } from '../contexts/DataContext'
+import { HoverCard, HoverCardContent, HoverCardTrigger } from './ui/hover-card'
 
 const Memories: React.FC = () => {
-  const memories = [
-    {
-      id: 1,
-      author: 'Racing Team',
-      memory: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-      date: 'August 2025'
-    },
-    {
-      id: 2,
-      author: 'F1 Community',
-      memory: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-      date: 'August 2025'
-    },
-    {
-      id: 3,
-      author: 'Pit Crew',
-      memory: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.',
-      date: 'August 2025'
-    }
-  ]
+  const { memoriesTributes } = useData()
 
   return (
     <section className="py-20 bg-gray-50" id="memories">
-      <div className="max-w-6xl mx-auto px-4">
-        <h2 className="text-4xl md:text-5xl font-light text-center text-gray-800 mb-16">
+      <div className="px-4 mx-auto max-w-6xl">
+        <h2 className="mb-16 text-4xl font-light text-center text-gray-800 md:text-5xl">
           Memories & Tributes
         </h2>
-        
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-          {memories.map((memory) => (
-            <div key={memory.id} className="bg-white p-8 rounded-lg border-l-4 border-red-600 shadow-sm transform hover:scale-105 transition-transform duration-300">
-              <div className="mb-6">
-                <p className="text-gray-700 leading-relaxed italic text-lg">
-                  "{memory.memory}"
-                </p>
-              </div>
-              <div className="flex justify-between items-center">
-                <span className="text-red-600 font-medium">
-                  - {memory.author}
-                </span>
-                <span className="text-gray-500 text-sm">
-                  {memory.date}
-                </span>
-              </div>
-            </div>
+
+        <div className="grid gap-8 mb-12 md:grid-cols-2 lg:grid-cols-3">
+          {memoriesTributes.map(memory => (
+            <HoverCard closeDelay={5000} key={memory.id}>
+              <HoverCardTrigger asChild>
+                <div className="p-8 bg-white rounded-lg border-l-4 border-red-600 shadow-sm transition-transform duration-300 transform hover:scale-105">
+                  <div className="mb-6">
+                    <p className="text-lg italic leading-relaxed text-gray-700">"{memory.text}"</p>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="font-medium text-red-600">
+                      {memory.show_name ? `- ${memory.name}` : '- Anonymous'}
+                    </span>
+                    <span className="text-sm text-gray-500">
+                      {new Date(memory.created_at).toLocaleDateString()}
+                    </span>
+                  </div>
+                </div>
+              </HoverCardTrigger>
+              <HoverCardContent className="px-4 py-2 text-white bg-gray-600 rounded shadow-lg">
+                {`cms-memories-tribute.${memory.id}`}
+              </HoverCardContent>
+            </HoverCard>
           ))}
         </div>
-        
+
         <div className="text-center">
-          <div className="bg-white p-8 rounded-lg border-2 border-dashed border-gray-300 shadow-sm">
-            <p className="text-gray-800 font-medium text-xl mb-2">
-              Share Your Memories
-            </p>
-            <small className="text-gray-600">
-              Contact us to add your tribute to Thomas
-            </small>
+          <div className="inline-block px-6 py-3 text-sm font-bold text-white bg-red-600 rounded-lg transition-transform duration-300 transform racing-font hover:scale-105">
+            <p className="mb-2 text-xl font-medium">Share Your Memories</p>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScjJOg35f6Bwvpr9OjRallaQTFmxobk9E6Dmpza5-SvIL8LEA/viewform?usp=dialog">
+              <small className="text-gray-200">Contact us to add your tribute to Thomas</small>
+            </a>
           </div>
         </div>
       </div>
@@ -64,4 +50,4 @@ const Memories: React.FC = () => {
   )
 }
 
-export default Memories 
+export default Memories
