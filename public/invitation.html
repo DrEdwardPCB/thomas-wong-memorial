@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>愛子王顥銘之安息禮拜</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap');
+        
+        body {
+            font-family: 'Noto Sans JP', 'Microsoft YaHei', '微软雅黑', Arial, sans-serif;
+            background: #ffffff;
+            margin: 0;
+            padding: 20px;
+            color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .invitation {
+            background: linear-gradient(45deg, #1a1a1a, rgba(0,0,0,.7), #1a1a1a);
+            width: 210mm;
+            height: 297mm;
+            margin: 0 auto;
+            position: relative;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            position:relative
+        }
+          .invitation-2{
+            background: linear-gradient(45deg, #1a1a1a, rgba(26,26,26,.8), #1a1a1a);
+            //background: linear-gradient(45deg,  rgba(0,0,0,.3), #1a1a1a,rgba(0,0,0,.3));
+            width: 210mm;
+            height: 297mm;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            position:relative
+        }
+        .bg-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            
+        }
+        
+        /* Subtle racing-inspired accent line */
+        .top-accent {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #c41e3a 0%, #ffffff 50%, #c41e3a 100%);
+        }
+        
+        .bottom-accent {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #c41e3a 0%, #ffffff 50%, #c41e3a 100%);
+        }
+        
+        .title {
+            text-align: center;
+            font-size: 42px;
+            font-weight: 700;
+            color: #f0f0f0;
+            padding-top: 40px;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+            position: relative;
+        }
+        
+        .title::after {
+            content: '✟';
+            display: block;
+            font-size: 32px;
+            color: #c41e3a;
+            margin-top: 8px;
+        }
+        
+        .announcement {
+            text-align: center;
+            font-size: 24px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            color: #e0e0e0;
+        }
+        
+        .announcement strong {
+            color: #f0f0f0;
+            font-size: 28px;
+            font-weight: 600;
+        }
+        
+        .tribute-quote {
+            text-align: center;
+            margin: 30px 0;
+            color: #b0b0b0;
+            font-style: italic;
+            font-size: 26px;
+            line-height: 1.6;
+        }
+        
+        .tribute-quote .english {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+        
+        .tribute-quote .chinese {
+            font-size: 26px;
+        }
+        
+        .racing-flag {
+            text-align: center;
+            font-size: 24px;
+            margin: 15px 0;
+        }
+        
+        /* Center-aligned service details */
+        .service-details {
+            margin: 20px 0;
+            padding-left: 0;
+            text-align: center;
+        }
+        
+        .section-header {
+            font-size: 22px;
+            font-weight: 600;
+            color: #c41e3a;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .detail-line {
+            font-size: 20px;
+            line-height: 1.5;
+            margin-bottom: 8px;
+            color: #e0e0e0;
+        }
+        
+        .detail-label {
+            color: #f0f0f0;
+            font-weight: 500;
+            display: inline-block;
+        }
+        
+        .address {
+            margin-left: 0;
+            color: #b0b0b0;
+            font-style: italic;
+            font-size: 18px;
+            margin-top: 4px;
+        }
+        
+        /* Center-aligned schedule */
+        .schedule-section {
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .schedule-header {
+            font-size: 22px;
+            font-weight: 600;
+            color: #c41e3a;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .schedule-item {
+            font-size: 20px;
+            line-height: 1.5;
+            margin-bottom: 8px;
+            color: #e0e0e0;
+        }
+        
+        .time {
+            color: #f0f0f0;
+            font-weight: 600;
+            margin-right: 20px;
+        }
+        
+        .event {
+            color: #b0b0b0;
+        }
+        
+        .date-highlight {
+            text-align: center;
+            font-size: 24px;
+            font-weight: 600;
+            color: #c41e3a;
+            margin: 12px 0;
+            letter-spacing: 1px;
+        }
+        
+        /* Center note */
+        .note {
+            text-align: center;
+            margin: 20px 0;
+            padding: 12px;
+            color: #e0e0e0;
+            font-size: 20px;
+            font-weight: 500;
+        }
+        
+        .qr-section {
+            text-align: center;
+            margin-top: 60px;
+        }
+        
+        .qr-placeholder {
+            width: 100px;
+            height: 100px;
+            border: 2px #c41e3a;
+            margin: 0 auto 8px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #2a2a2a;
+            border-radius: 8px;
+            overflow:hidden
+        }
+        
+        .qr-text {
+            color: #c41e3a;
+            font-size: 12px;
+            font-weight: 500;
+            text-align: center;
+        }
+        
+        .qr-label {
+            color: #b0b0b0;
+            font-size: 16px;
+            margin-top: 6px;
+        }
+        
+        /* Bottom signature */
+        .signature {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 22px;
+            font-weight: 600;
+            color: #f0f0f0;
+            letter-spacing: 1px;
+        }
+        
+        .cremation-note {
+            text-align: center;
+            color: #888888;
+            font-style: italic;
+            font-size: 18px;
+            margin: 12px 0;
+        }
+        
+        @media print {
+            body { 
+                background: #ffffff; 
+                margin: 0; 
+                padding: 0; 
+                -webkit-print-color-adjust: exact;
+                color-adjust: exact;
+            }
+            .invitation { 
+                width: 100%;
+                height: 100vh;
+                box-shadow: none;
+                margin: 0;
+                padding: 30px;
+            }
+        }
+    </style>
+</head>
+<body >
+    <div class="invitation">
+        <img src="./IMG_4730-modified.JPG" class="bg-image" style="object-fit: cover; width: 100%; height: 100%;"/>
+        <div class="invitation-2">
+        <div class="top-accent"></div>
+        
+        <div class="title">
+            愛子王顥銘之安息禮拜
+        </div>
+        
+        <div class="announcement">
+            泣告 各位親友：<br><br>
+            愛子<strong>王顥銘</strong> 於主曆2025年8月3日<br>
+            安息主懷
+        </div>
+        
+        <div class="service-details">
+            <div class="section-header">安息禮拜</div>
+            
+            <div class="detail-line">
+                <span class="detail-label">地點：</span>
+                灣仔循道衛理會國際禮拜堂 1樓聖堂
+            </div>
+            
+            <div class="address">
+                灣仔皇后大道東271號
+            </div>
+        </div>
+        
+        <div class="date-highlight">
+            2025年8月30日（星期六）
+        </div>
+        
+        <div class="schedule-section">
+            <div class="schedule-header">時間安排</div>
+            
+            <div class="schedule-item">
+                <span class="time">下午1:30</span>
+                <span class="event">開始集合</span>
+            </div>
+            
+            <div class="schedule-item">
+                <span class="time">下午2:30</span>
+                <span class="event">舉行安息禮拜</span>
+            </div>
+            
+            <div class="schedule-item">
+                <span class="time">下午3:30</span>
+                <span class="event">辭靈出殯</span>
+            </div>
+        </div>
+        
+        <div class="cremation-note">
+            靈柩奉移往火葬場舉行火葬禮<br>
+            （火葬場地點待定）
+        </div>
+        
+        <div class="note">
+            敬辭花圈
+        </div>
+         <div class="signature">
+            王府治喪泣告
+        </div>
+        <div class="qr-section">
+            <div class="qr-placeholder">
+                <img src="./siteqr.png"/>
+            </div>
+            
+            <div class="qr-label">掃描查看紀念網站</div>
+        </div>
+        
+       
+        
+        <div class="bottom-accent"></div>
+        </div>
+    </div>
+</body>
+</html>
