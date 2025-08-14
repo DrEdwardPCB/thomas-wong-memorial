@@ -9,6 +9,7 @@ import PhotoGallery from './components/PhotoGallery'
 import Memories from './components/Memories'
 import Family from './components/Family'
 import Contact from './components/Contact'
+import BackgroundMusic from './components/BackgroundMusic'
 
 const AppContent: React.FC = () => {
   const { isLoading, error } = useData()
@@ -23,8 +24,8 @@ const AppContent: React.FC = () => {
         <div className="text-center">
           <h1 className="mb-4 text-3xl font-light text-gray-800">Thomas Wong 王顥銘</h1>
           <p className="mb-4 text-red-600">Error loading memorial data: {error}</p>
-          <button 
-            onClick={() => window.location.reload()} 
+          <button
+            onClick={() => window.location.reload()}
             className="px-6 py-3 text-white bg-red-600 rounded-lg transition-colors hover:bg-red-700"
           >
             Reload
@@ -43,6 +44,7 @@ const AppContent: React.FC = () => {
       <Memories />
       <Family />
       <Contact />
+      <BackgroundMusic />
     </div>
   )
 }
