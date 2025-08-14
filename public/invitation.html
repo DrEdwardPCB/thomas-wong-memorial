@@ -30,8 +30,7 @@
             position:relative
         }
           .invitation-2{
-            background: linear-gradient(45deg, #1a1a1a, rgba(26,26,26,.8), #1a1a1a);
-            //background: linear-gradient(45deg,  rgba(0,0,0,.3), #1a1a1a,rgba(0,0,0,.3));
+            background: linear-gradient(45deg, #1a1a1a, rgba(26,26,26,.75), #1a1a1a);
             width: 210mm;
             height: 297mm;
             box-shadow: 0 4px 20px rgba(0,0,0,0.3);
@@ -71,15 +70,14 @@
             font-weight: 700;
             color: #f0f0f0;
             padding-top: 40px;
-            margin-bottom: 20px;
+            margin-bottom: 60px;
             letter-spacing: 2px;
             position: relative;
         }
         
         .title::after {
-            content: '✟';
+            height: 32px;
             display: block;
-            font-size: 32px;
             color: #1257ea;
             margin-top: 8px;
         }
@@ -98,24 +96,37 @@
             font-weight: 600;
         }
         
-        .tribute-quote {
+             .tribute-section {
             text-align: center;
-            margin: 30px 0;
-            color: #b0b0b0;
+            margin: 20px 0;
+            padding: 10px;
+            background: rgba(44, 30, 58, 0.3);
+            border-radius: 8px;
+        }
+        
+        .tribute-text {
+            font-weight: 100;
+            text-align: center;
+            color: #d0d0d0;
+            font-size: 18px;
+            line-height: 1.8;
             font-style: italic;
-            font-size: 26px;
+        }
+        
+        .addressee {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 18px;
+            color: #e0e0e0;
+        }
+        
+        .parents {
+            text-align: center;
+            margin: 5px 0 10px 0;
+            font-size: 18px;
+            color: #f0f0f0;
             line-height: 1.6;
         }
-        
-        .tribute-quote .english {
-            font-size: 24px;
-            margin-bottom: 5px;
-        }
-        
-        .tribute-quote .chinese {
-            font-size: 26px;
-        }
-        
         .racing-flag {
             text-align: center;
             font-size: 24px;
@@ -131,9 +142,9 @@
         
         .section-header {
             font-size: 22px;
-            font-weight: 600;
-            color: #1257ea;
-            margin-bottom: 12px;
+            font-weight: bold;
+            color: #e0e0e0;
+            margin-bottom: 17px;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
@@ -168,7 +179,7 @@
         .schedule-header {
             font-size: 22px;
             font-weight: 600;
-            color: #1257ea;
+            color: #e0e0e0;
             margin-bottom: 12px;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -203,7 +214,6 @@
         /* Center note */
         .note {
             text-align: center;
-            margin: 20px 0;
             padding: 12px;
             color: #e0e0e0;
             font-size: 20px;
@@ -212,7 +222,7 @@
         
         .qr-section {
             text-align: center;
-            margin-top: 60px;
+            margin-top: 20px;
         }
         
         .qr-placeholder {
@@ -284,61 +294,66 @@
         <div class="top-accent"></div>
         
         <div class="title">
-            愛子王顥銘之安息禮拜
+            Thomas Wong<br/>
+            王顥銘
         </div>
         
+         
+        
         <div class="announcement">
-            泣告 各位親友：<br><br>
-            愛子 <strong>王顥銘</strong> 於主曆2025年8月3日<br>
-            安息主懷
+            愛子 <strong>顥銘</strong> 於二零二五年八月三日安息主懷
         </div>
         
         <div class="service-details">
-            <div class="section-header">安息禮拜</div>
+            <div class="section-header">安息禮拜謹訂於</div>
+            <!-- <div class="detail-line">安息禮拜謹訂於</div> -->
+
             
             <div class="detail-line">
-                <span class="detail-label">地點：</span>
-                灣仔循道衛理會國際禮拜堂 1樓聖堂
+                二零二五年八月三十日（星期六）
             </div>
             
-            <div class="address">
-                灣仔皇后大道東271號
+            <div class="detail-line">
+                下午二時三十分
+            </div>
+            
+            <div class="detail-line">
+                於灣仔皇后大道東271號
+            </div>
+            
+            <div class="detail-line">
+                循道衛理會國際禮拜堂舉行
+            </div>
+            
+            <div class="detail-line" style="margin-top: 15px;">
+                隨即辭靈出殯
+            </div>
+            
+            <div class="detail-line">
+                靈柩奉移往哥連臣閣火葬場舉行火葬禮
             </div>
         </div>
         
-        <div class="date-highlight">
-            2025年8月30日（星期六）
-        </div>
-        
-        <div class="schedule-section">
-            <div class="schedule-header">時間安排</div>
-            
-            <div class="schedule-item">
-                <span class="time">下午1:30</span>
-                <span class="event">開始集合</span>
-            </div>
-            
-            <div class="schedule-item">
-                <span class="time">下午2:30</span>
-                <span class="event">舉行安息禮拜</span>
-            </div>
-            
-            <div class="schedule-item">
-                <span class="time">下午3:30</span>
-                <span class="event">辭靈出殯</span>
+        <div class="tribute-section">
+            <div class="tribute-text">
+                顥銘已回到天父懷中<br><br>
+                感謝你們以愛與陪伴　溫暖他生命的旅程<br>
+                逝去的只是身影　不滅的是永恆情誼<br>
+                這份珍貴的恩情　我們永遠銘記於心
             </div>
         </div>
         
-        <div class="cremation-note">
-            靈柩奉移往火葬場舉行火葬禮<br>
-            （火葬場地點待定）
+        <div class="addressee">
+            此致 各親友
+        </div>
+        
+        <div class="parents">
+            父親 王錦鴻　　母親 陳倩媚<br>
+            敬告
         </div>
         
         <div class="note">
-            敬辭花圈
-        </div>
-         <div class="signature">
-            王府治喪泣告
+            ※敬辭花圈※
         </div>
         <div class="qr-section">
             <div class="qr-placeholder">
