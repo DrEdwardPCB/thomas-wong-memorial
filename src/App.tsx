@@ -1,4 +1,5 @@
-import React from 'react'
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+import React, { useEffect } from 'react'
 import './App.css'
 import { DataProvider, useData } from './contexts/DataContext'
 import Loading from './components/Loading'
@@ -13,6 +14,10 @@ import BackgroundMusic from './components/BackgroundMusic'
 
 const AppContent: React.FC = () => {
   const { isLoading, error } = useData()
+  useEffect(() => {
+    //@ts-expect-error
+    window.ScreenOrientation.lock('portrait')
+  }, [])
 
   if (isLoading) {
     return <Loading />

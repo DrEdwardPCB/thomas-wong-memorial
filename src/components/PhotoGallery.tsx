@@ -100,7 +100,7 @@ const PhotoGallery: React.FC = () => {
           <DialogContent className="pt-0">
             <div className="mx-auto max-w-4xl">
               {/* Carousel Display */}
-              <div className="flex relative justify-center items-center p-6 mb-8 bg-white rounded-lg shadow-sm aspect-video">
+              <div className="flex relative justify-center items-center rounded-lg shadow-sm p-6bg-white aspect-video">
                 <img
                   className={'object-contain h-auto md:h-150'}
                   src={currentSection?.photos[currentCarouselIndex].image}
@@ -121,7 +121,7 @@ const PhotoGallery: React.FC = () => {
                 </div>
               </div>
               <div
-                className={`visible p-4 m-4 text-center bg-gray-300 rounded-lg shadow-lg opacity-90 md:invisible`}
+                className={`visible p-4 m-4 text-center bg-gray-300 rounded-lg shadow-lg opacity-90 md:invisible md:h-0`}
               >
                 <div className="mb-4 text-3xl font-medium text-red-600">
                   {currentSection?.photos[currentCarouselIndex].title}
@@ -134,7 +134,7 @@ const PhotoGallery: React.FC = () => {
                 </div>
               </div>
               {/* Carousel Navigation */}
-              <div className="flex justify-between items-center">
+              <div className="flex justify-between items-center h-20">
                 <button
                   onClick={prevCarouselPhoto}
                   className="px-8 py-4 font-medium text-gray-700 bg-gray-200 rounded-lg transition-colors duration-200 hover:bg-gray-300"
