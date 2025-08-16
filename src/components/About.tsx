@@ -20,16 +20,16 @@ const About: React.FC = () => {
 
   return (
     <section className="py-20 bg-white" id="about">
-      <div className="px-4 mx-auto max-w-6xl">
+      <div className="max-w-6xl px-4 mx-auto">
         <h2 className="mb-16 text-4xl font-light text-center text-gray-800 md:text-5xl">
           About Thomas
         </h2>
 
-        <div className="grid gap-12 items-center md:grid-cols-2">
+        <div className="grid items-center gap-12 md:grid-cols-2">
           <div className="space-y-6">
             <HoverCard closeDelay={5000}>
               <HoverCardTrigger asChild>
-                <div className="p-8 bg-gray-50 rounded-lg border-l-4 border-red-600">
+                <div className="p-8 border-l-4 border-red-600 rounded-lg bg-gray-50">
                   <p className="text-lg leading-relaxed text-gray-700">{aboutText1}</p>
                 </div>
               </HoverCardTrigger>
@@ -39,7 +39,7 @@ const About: React.FC = () => {
             </HoverCard>
             <HoverCard closeDelay={5000}>
               <HoverCardTrigger asChild>
-                <div className="p-8 bg-gray-50 rounded-lg border-l-4 border-blue-600">
+                <div className="p-8 border-l-4 border-blue-600 rounded-lg bg-gray-50">
                   <p className="text-lg leading-relaxed text-gray-700">{aboutText2}</p>
                 </div>
               </HoverCardTrigger>
@@ -49,7 +49,7 @@ const About: React.FC = () => {
             </HoverCard>
             <HoverCard closeDelay={5000}>
               <HoverCardTrigger asChild>
-                <div className="p-8 bg-gray-50 rounded-lg border-l-4 border-yellow-500">
+                <div className="p-8 border-l-4 border-yellow-500 rounded-lg bg-gray-50">
                   <p className="text-lg leading-relaxed text-gray-700">{aboutText3}</p>
                 </div>
               </HoverCardTrigger>
@@ -62,7 +62,7 @@ const About: React.FC = () => {
           <div className="text-center">
             <HoverCard closeDelay={5000}>
               <HoverCardTrigger asChild>
-                <div className="p-8 max-w-md bg-gray-100 rounded-lg border-2 border-gray-300 border-dashed">
+                <div className="max-w-md p-8 shadow-2xl bg-slate-100 ">
                   <img
                     src={aboutImage}
                     alt="Thomas"

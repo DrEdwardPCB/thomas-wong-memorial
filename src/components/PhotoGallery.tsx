@@ -40,7 +40,7 @@ const PhotoGallery: React.FC = () => {
 
   return (
     <section className="py-20 bg-white" id="gallery">
-      <div className="px-4 mx-auto max-w-6xl">
+      <div className="max-w-6xl px-4 mx-auto">
         <h2 className="mb-16 text-4xl font-light text-center text-gray-800 md:text-5xl">
           Photo Gallery
         </h2>
@@ -57,7 +57,7 @@ const PhotoGallery: React.FC = () => {
                   className="object-cover absolute top-0 right-0 left-0 rounded-lg bottom-[50%] aspect-square"
                   src={section.photos[0].image}
                 ></img>
-                <div className="absolute right-0 bottom-0 left-0 p-4 bg-gray-300 rounded-bottom-lg">
+                <div className="absolute bottom-0 left-0 right-0 p-4 bg-gray-300 rounded-b-lg">
                   <div className="mb-2 text-xl font-medium text-red-600">{section.title}</div>
                   <div className="mb-1 text-lg font-medium text-gray-800">
                     {section.description}
@@ -84,10 +84,10 @@ const PhotoGallery: React.FC = () => {
           </div>
 
           {/* Carousel Display */}
-          <div className="mx-auto max-w-4xl">
-            <div className="flex relative justify-center items-center mb-8 bg-white rounded-lg border-2 border-gray-300 border-dashed shadow-sm aspect-video">
+          <div className="max-w-4xl mx-auto">
+            <div className="relative flex items-center justify-center p-6 mb-8 bg-white shadow-sm shaorounded-lg aspect-video">
               <img
-                className={'object-contain rounded-xl shadow h-150'}
+                className={'object-contain h-150'}
                 src={currentSection?.photos[currentCarouselIndex].image}
                 alt={currentSection?.photos[currentCarouselIndex].title}
               />
@@ -107,15 +107,14 @@ const PhotoGallery: React.FC = () => {
             </div>
 
             {/* Carousel Navigation */}
-            <div className="flex justify-between items-center">
+            <div className="flex items-center justify-between">
               <button
                 onClick={prevCarouselPhoto}
-                className="px-8 py-4 font-medium text-gray-700 bg-gray-200 rounded-lg transition-colors duration-200 hover:bg-gray-300"
+                className="px-8 py-4 font-medium text-gray-700 transition-colors duration-200 bg-gray-200 rounded-lg hover:bg-gray-300"
               >
                 ← Previous
               </button>
-
-              <div className="flex space-x-3">
+              <div className="flex flex-wrap h-12 gap-1 m-4 space-x-3">
                 {currentSection?.photos.map((_, index) => (
                   <button
                     key={index}
@@ -129,7 +128,7 @@ const PhotoGallery: React.FC = () => {
 
               <button
                 onClick={nextCarouselPhoto}
-                className="px-8 py-4 font-medium text-gray-700 bg-gray-200 rounded-lg transition-colors duration-200 hover:bg-gray-300"
+                className="px-8 py-4 font-medium text-gray-700 transition-colors duration-200 bg-gray-200 rounded-lg hover:bg-gray-300"
               >
                 Next →
               </button>

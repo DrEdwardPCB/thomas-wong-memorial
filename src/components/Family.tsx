@@ -35,23 +35,23 @@ const Family: React.FC = () => {
 
   return (
     <section className="py-20 bg-white" id="family">
-      <div className="px-4 mx-auto max-w-6xl">
+      <div className="max-w-6xl px-4 mx-auto">
         <h2 className="mb-16 text-4xl font-light text-center text-gray-800 md:text-5xl">Family</h2>
 
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {familyMembers.map((member, index) => (
             <div
               key={member.id}
-              className="p-8 bg-gray-50 rounded-lg border-l-4 border-blue-600 shadow-sm transition-transform duration-300 transform hover:scale-105"
+              className="p-8 transition-transform duration-300 transform border-l-4 border-blue-600 rounded-lg shadow-sm bg-gray-50 hover:scale-105"
             >
               <div className="mb-6 text-center">
                 <HoverCard closeDelay={5000}>
                   <HoverCardTrigger asChild>
-                    <div className="p-6 mb-4 bg-gray-100 rounded-lg border-2 border-gray-300 border-dashed">
+                    <div className="p-6 mb-4 bg-white shadow-lg">
                       <img
                         src={member.image}
                         alt={member.name}
-                        className="object-cover w-full h-48 rounded-lg"
+                        className="object-cover w-full h-48 "
                       />
                     </div>
                   </HoverCardTrigger>

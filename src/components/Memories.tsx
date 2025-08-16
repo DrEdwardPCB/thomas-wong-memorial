@@ -7,7 +7,7 @@ const Memories: React.FC = () => {
 
   return (
     <section className="py-20 bg-gray-50" id="memories">
-      <div className="px-4 mx-auto max-w-6xl">
+      <div className="max-w-6xl px-4 mx-auto">
         <h2 className="mb-16 text-4xl font-light text-center text-gray-800 md:text-5xl">
           Memories & Tributes
         </h2>
@@ -16,11 +16,13 @@ const Memories: React.FC = () => {
           {memoriesTributes.map(memory => (
             <HoverCard closeDelay={5000} key={memory.id}>
               <HoverCardTrigger asChild>
-                <div className="p-8 bg-white rounded-lg border-l-4 border-red-600 shadow-sm transition-transform duration-300 transform hover:scale-105">
+                <div
+                  className={`${memory.text.length > 150 ? 'row-span-2' : ''} p-8 transition-transform duration-300 transform bg-white border-l-4 border-red-600 rounded-lg shadow-sm hover:scale-105`}
+                >
                   <div className="mb-6">
                     <p className="text-lg italic leading-relaxed text-gray-700">"{memory.text}"</p>
                   </div>
-                  <div className="flex justify-between items-center">
+                  <div className="flex items-center justify-between">
                     <span className="font-medium text-red-600">
                       {memory.show_name ? `- ${memory.name}` : '- Anonymous'}
                     </span>
@@ -38,7 +40,7 @@ const Memories: React.FC = () => {
         </div>
 
         <div className="text-center">
-          <div className="inline-block px-6 py-3 text-sm font-bold text-white bg-red-600 rounded-lg transition-transform duration-300 transform racing-font hover:scale-105">
+          <div className="inline-block px-6 py-3 text-sm font-bold text-white transition-transform duration-300 transform bg-red-600 rounded-lg racing-font hover:scale-105">
             <p className="mb-2 text-xl font-medium">Share Your Memories</p>
             <a href="https://docs.google.com/forms/d/e/1FAIpQLScjJOg35f6Bwvpr9OjRallaQTFmxobk9E6Dmpza5-SvIL8LEA/viewform?usp=dialog">
               <small className="text-gray-200">Contact us to add your tribute to Thomas</small>
