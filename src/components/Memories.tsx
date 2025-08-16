@@ -7,7 +7,7 @@ const Memories: React.FC = () => {
 
   return (
     <section className="py-20 bg-gray-50" id="memories">
-      <div className="max-w-6xl px-4 mx-auto">
+      <div className="px-4 mx-auto max-w-6xl">
         <h2 className="mb-16 text-4xl font-light text-center text-gray-800 md:text-5xl">
           Memories & Tributes
         </h2>
@@ -20,9 +20,9 @@ const Memories: React.FC = () => {
                   className={`${memory.text.length > 150 ? 'row-span-2' : ''} p-8 transition-transform duration-300 transform bg-white border-l-4 border-red-600 rounded-lg shadow-sm hover:scale-105`}
                 >
                   <div className="mb-6">
-                    <p className="text-lg italic leading-relaxed text-gray-700">"{memory.text}"</p>
+                    <p className="text-gray-700 text-lgleading-relaxed">"{memory.text}"</p>
                   </div>
-                  <div className="flex items-center justify-between">
+                  <div className="flex justify-between items-center">
                     <span className="font-medium text-red-600">
                       {memory.show_name ? `- ${memory.name}` : '- Anonymous'}
                     </span>
@@ -40,7 +40,7 @@ const Memories: React.FC = () => {
         </div>
 
         <div className="text-center">
-          <div className="inline-block px-6 py-3 text-sm font-bold text-white transition-transform duration-300 transform bg-red-600 rounded-lg racing-font hover:scale-105">
+          <div className="inline-block px-6 py-3 text-sm font-bold text-white bg-red-600 rounded-lg transition-transform duration-300 transform racing-font hover:scale-105">
             <p className="mb-2 text-xl font-medium">Share Your Memories</p>
             <a href="https://docs.google.com/forms/d/e/1FAIpQLScjJOg35f6Bwvpr9OjRallaQTFmxobk9E6Dmpza5-SvIL8LEA/viewform?usp=dialog">
               <small className="text-gray-200">Contact us to add your tribute to Thomas</small>

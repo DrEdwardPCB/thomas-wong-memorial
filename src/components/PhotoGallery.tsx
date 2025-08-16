@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import { Dialog, DialogContent, DialogTitle, IconButton } from '@mui/material'
+import { Close as CloseIcon } from '@mui/icons-material'
 import { useData, type PhotoSection } from '../contexts/DataContext'
 
 const PhotoGallery: React.FC = () => {
@@ -9,13 +11,13 @@ const PhotoGallery: React.FC = () => {
   const photoSections: PhotoSection[] = getPhotoSections()
 
   const handleSectionClick = (sectionId: number) => {
-    if (expandedSection === sectionId) {
-      setExpandedSection(null)
-      setCurrentCarouselIndex(0)
-    } else {
-      setExpandedSection(sectionId)
-      setCurrentCarouselIndex(0)
-    }
+    setExpandedSection(sectionId)
+    setCurrentCarouselIndex(0)
+  }
+
+  const handleCloseDialog = () => {
+    setExpandedSection(null)
+    setCurrentCarouselIndex(0)
   }
 
   const nextCarouselPhoto = () => {
@@ -40,7 +42,7 @@ const PhotoGallery: React.FC = () => {
 
   return (
     <section className="py-20 bg-white" id="gallery">
-      <div className="max-w-6xl px-4 mx-auto">
+      <div className="px-4 mx-auto max-w-6xl">
         <h2 className="mb-16 text-4xl font-light text-center text-gray-800 md:text-5xl">
           Photo Gallery
         </h2>
@@ -63,36 +65,63 @@ const PhotoGallery: React.FC = () => {
                     {section.description}
                   </div>
                   <div className="mb-2 text-sm text-gray-600">{section.photos.length} photos</div>
-                  <div className="mt-4 text-xs text-gray-500">
-                    {expandedSection === section.id ? 'Click to collapse' : 'Click to view'}
-                  </div>
+                  <div className="mt-4 text-xs text-gray-500">Click to view</div>
                 </div>
               </div>
             </div>
           ))}
         </div>
 
-        {/* Full-Width Animated Carousel Section */}
-
-        <div
-          className={`mt-12 bg-gray-50 rounded-lg p-8 transition-all ${expandedSection ? 'opacity-100 duration-1000' : 'h-0 opacity-0 duration-0'}`}
+        {/* MUI Dialog for Carousel */}
+        <Dialog
+          open={!!expandedSection}
+          onClose={handleCloseDialog}
+          maxWidth="lg"
+          fullWidth
+          PaperProps={{
+            style: {
+              backgroundColor: '#f9fafb',
+              borderRadius: '8px',
+            },
+          }}
         >
-          {/* Carousel Header */}
-          <div className="mb-8 text-center">
-            <h3 className="mb-2 text-3xl font-medium text-gray-800">{currentSection?.title}</h3>
-            <p className="text-lg text-gray-600">{currentSection?.description}</p>
-          </div>
+          <DialogTitle className="pb-2 text-center">
+            <div className="flex justify-between items-center">
+              <div className="flex-1 text-center">
+                <h3 className="text-3xl font-medium text-gray-800">{currentSection?.title}</h3>
+                <p className="mt-2 text-lg text-gray-600">{currentSection?.description}</p>
+              </div>
+              <IconButton onClick={handleCloseDialog} className="ml-auto" size="large">
+                <CloseIcon />
+              </IconButton>
+            </div>
+          </DialogTitle>
 
-          {/* Carousel Display */}
-          <div className="max-w-4xl mx-auto">
-            <div className="relative flex items-center justify-center p-6 mb-8 bg-white shadow-sm shaorounded-lg aspect-video">
-              <img
-                className={'object-contain h-150'}
-                src={currentSection?.photos[currentCarouselIndex].image}
-                alt={currentSection?.photos[currentCarouselIndex].title}
-              />
+          <DialogContent className="pt-0">
+            <div className="mx-auto max-w-4xl">
+              {/* Carousel Display */}
+              <div className="flex relative justify-center items-center p-6 mb-8 bg-white rounded-lg shadow-sm aspect-video">
+                <img
+                  className={'object-contain h-auto md:h-150'}
+                  src={currentSection?.photos[currentCarouselIndex].image}
+                  alt={currentSection?.photos[currentCarouselIndex].title}
+                />
+                <div
+                  className={`absolute bottom-0 left-0 invisible p-4 m-4 text-center bg-gray-300 rounded-lg shadow-lg opacity-90 md:visible`}
+                >
+                  <div className="mb-4 text-3xl font-medium text-red-600">
+                    {currentSection?.photos[currentCarouselIndex].title}
+                  </div>
+                  <div className="mb-4 text-xl text-gray-600">
+                    {currentSection?.photos[currentCarouselIndex].description}
+                  </div>
+                  <div className="text-lg text-gray-500">
+                    Photo {currentCarouselIndex + 1} of {currentSection?.photos.length}
+                  </div>
+                </div>
+              </div>
               <div
-                className={`absolute bottom-0 left-0 p-4 m-4 text-center bg-gray-300 rounded-lg shadow-lg opacity-90`}
+                className={`visible p-4 m-4 text-center bg-gray-300 rounded-lg shadow-lg opacity-90 md:invisible`}
               >
                 <div className="mb-4 text-3xl font-medium text-red-600">
                   {currentSection?.photos[currentCarouselIndex].title}
@@ -104,37 +133,36 @@ const PhotoGallery: React.FC = () => {
                   Photo {currentCarouselIndex + 1} of {currentSection?.photos.length}
                 </div>
               </div>
-            </div>
+              {/* Carousel Navigation */}
+              <div className="flex justify-between items-center">
+                <button
+                  onClick={prevCarouselPhoto}
+                  className="px-8 py-4 font-medium text-gray-700 bg-gray-200 rounded-lg transition-colors duration-200 hover:bg-gray-300"
+                >
+                  ← Previous
+                </button>
+                <div className="flex invisible flex-wrap gap-1 m-4 space-x-3 md:visible">
+                  {currentSection?.photos.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setCurrentCarouselIndex(index)}
+                      className={`w-4 h-4 rounded-full transition-colors duration-200 ${
+                        index === currentCarouselIndex ? 'bg-red-600' : 'bg-gray-300'
+                      }`}
+                    />
+                  ))}
+                </div>
 
-            {/* Carousel Navigation */}
-            <div className="flex items-center justify-between">
-              <button
-                onClick={prevCarouselPhoto}
-                className="px-8 py-4 font-medium text-gray-700 transition-colors duration-200 bg-gray-200 rounded-lg hover:bg-gray-300"
-              >
-                ← Previous
-              </button>
-              <div className="flex flex-wrap h-12 gap-1 m-4 space-x-3">
-                {currentSection?.photos.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setCurrentCarouselIndex(index)}
-                    className={`w-4 h-4 rounded-full transition-colors duration-200 ${
-                      index === currentCarouselIndex ? 'bg-red-600' : 'bg-gray-300'
-                    }`}
-                  />
-                ))}
+                <button
+                  onClick={nextCarouselPhoto}
+                  className="px-8 py-4 font-medium text-gray-700 bg-gray-200 rounded-lg transition-colors duration-200 hover:bg-gray-300"
+                >
+                  Next →
+                </button>
               </div>
-
-              <button
-                onClick={nextCarouselPhoto}
-                className="px-8 py-4 font-medium text-gray-700 transition-colors duration-200 bg-gray-200 rounded-lg hover:bg-gray-300"
-              >
-                Next →
-              </button>
             </div>
-          </div>
-        </div>
+          </DialogContent>
+        </Dialog>
       </div>
     </section>
   )
