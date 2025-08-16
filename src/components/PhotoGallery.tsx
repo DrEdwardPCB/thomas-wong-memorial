@@ -57,7 +57,7 @@ const PhotoGallery: React.FC = () => {
                   className="object-cover absolute top-0 right-0 left-0 rounded-lg bottom-[50%] aspect-square"
                   src={section.photos[0].image}
                 ></img>
-                <div className="absolute bottom-0 left-0 right-0 p-4 bg-gray-300 rounded-b-lg">
+                <div className="absolute bottom-0 left-0 right-0 p-4 bg-[rgba(249,250,252,.6)] rounded-b-lg">
                   <div className="mb-2 text-xl font-medium text-red-600">{section.title}</div>
                   <div className="mb-1 text-lg font-medium text-gray-800">
                     {section.description}
