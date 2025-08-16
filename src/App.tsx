@@ -16,7 +16,7 @@ const AppContent: React.FC = () => {
   const { isLoading, error } = useData()
   useEffect(() => {
     //@ts-expect-error
-    window.ScreenOrientation.lock('portrait')
+    window.screen.orientation.lock('portrait')
   }, [])
 
   if (isLoading) {
