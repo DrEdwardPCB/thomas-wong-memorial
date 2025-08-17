@@ -11,19 +11,19 @@ const Hero: React.FC = () => {
   const heroImage = getMediaUrl('/hero.jpeg')
 
   return (
-    <section className="relative flex items-center justify-center min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
+    <section className="flex relative justify-center items-center min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
       {/* Subtle racing background elements */}
       <div className="absolute inset-0 opacity-5">
         <div
-          className="absolute w-32 h-32 border-2 border-red-600 rounded-full top-10 left-10 animate-spin"
+          className="absolute h-10 w-10 md:w-32 md:h-32 border-2 border-red-600 rounded-full top-10 left-10 animate-spin"
           style={{ animationDuration: '30s' }}
         ></div>
         <div
-          className="absolute w-24 h-24 border-2 border-blue-600 rounded-full right-20 bottom-20 animate-spin"
+          className="absolute right-20 bottom-20 h-6 w-6 md:w-24 md:h-24 rounded-full border-2 border-blue-600 animate-spin"
           style={{ animationDuration: '25s' }}
         ></div>
         <div
-          className="absolute w-16 h-16 border-2 border-yellow-500 rounded-full top-1/2 left-1/4 animate-spin"
+          className="absolute top-1/2 left-1/4 h-4 w-4 md:w-16 md:h-16 rounded-full border-2 border-yellow-500 animate-spin"
           style={{ animationDuration: '35s' }}
         ></div>
       </div>
@@ -51,7 +51,7 @@ const Hero: React.FC = () => {
         <div className="mt-8">
           <HoverCard closeDelay={5000}>
             <HoverCardTrigger asChild>
-              <div className="max-w-md p-8 bg-gray-100 border-2 border-gray-300 shadow-2xl">
+              <div className="p-8 max-w-md bg-gray-100 border-2 border-gray-300 shadow-2xl">
                 <img
                   src={heroImage}
                   alt="Thomas"
@@ -68,7 +68,7 @@ const Hero: React.FC = () => {
         <div className="mt-8">
           <HoverCard closeDelay={5000}>
             <HoverCardTrigger asChild>
-              <div className="inline-block px-6 py-3 text-sm font-bold text-white transition-transform duration-300 transform bg-red-600 rounded-lg racing-font hover:scale-105">
+              <div className="inline-block px-6 py-3 text-sm font-bold text-white bg-red-600 rounded-lg transition-transform duration-300 transform racing-font hover:scale-105">
                 {heroSubtitle2}
               </div>
             </HoverCardTrigger>
